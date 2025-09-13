@@ -1,0 +1,41 @@
+# 検索エンジンクローラー完全ブロック
+Header always set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet, noimageindex"
+
+# 特定のユーザーエージェントをブロック
+RewriteEngine On
+
+# Google系クローラー
+RewriteCond %{HTTP_USER_AGENT} Googlebot [NC]
+RewriteRule .* - [F,L]
+
+# Bing系クローラー  
+RewriteCond %{HTTP_USER_AGENT} bingbot [NC]
+RewriteRule .* - [F,L]
+
+# Yahoo系クローラー
+RewriteCond %{HTTP_USER_AGENT} Slurp [NC]
+RewriteRule .* - [F,L]
+
+# AI検索エンジン
+RewriteCond %{HTTP_USER_AGENT} GPTBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ChatGPT [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} CCBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} anthropic [NC]
+RewriteRule .* - [F,L]
+
+# ソーシャルメディアクローラー
+RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Twitterbot [NC]
+RewriteRule .* - [F,L]
+
+# キャッシュ制御
+<IfModule mod_expires.c>
+    ExpiresActive Off
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header unset ETag
+    Header set Cache-Control "no-cache, no-store, must-revalidate, private"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</IfModule>

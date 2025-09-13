@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web広告・D2C用語タイピング</title>
+    
+    <!-- 検索エンジン対策: 完全非公開化 -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    
+    <!-- AI検索エンジン対策 -->
+    <meta name="ChatGPT" content="noindex">
+    <meta name="GPTBot" content="noindex">
+    <meta name="CCBot" content="noindex">
+    <meta name="anthropic-ai" content="noindex">
+    
+    <!-- ソーシャルメディア対策 -->
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    
+    <!-- 追加のプライバシー設定 -->
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive, nosnippet">
+    <script src="https://unpkg.com/wanakana"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+    
+        .game-area {
+            margin: 20px 0;
+        }
+        .sentence {
+            font-size: 24px;
+            margin: 20px 0;
+            padding: 20px;
+            font-weight: 600;
+            color: #212529;
+            background: #f8f9fa;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .furigana {
+            font-size: 14px;
+            color: #6c757d;
+            text-align: center;
+            margin: 8px 0;
+            font-weight: 400;
+        }
+        
+        .romaji-guide {
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        /* カテゴリ表示のスタイル */
+        .category-display {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .category-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-block;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* 進捗バーのスタイル */
+        .progress-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(102, 126, 234, 0.3);
+        }
+        
+        .sentence-info {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .info-tag {
+            padding: 4px 12px;
+            background: #e9ecef;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #495057;
+            font-weight: 500;
+        }
+        
+        .info-tag.category {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        
+        .input-area {
+            margin: 20px 0;
+        }
+        .typing-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+        .stat {
+            text-align: center;
+            padding: 16px 12px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+        }
+        .stat div:first-child {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 8px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .stat-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #212529;
+        }
+        
+        /* ミニマル&モダンなランク表示 */
+        .rank-display {
+            text-align: center;
+            margin: 30px 0;
+            padding: 0;
+            background: none;
+        }
+        
+        .rank-label {
+            font-size: 14px;
+            color: #8e8e93;
+            margin-bottom: 8px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .rank-value {
+            font-size: 72px;
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+        
+        /* ミニマルなランク別カラー */
+        .rank-sss { color: #ff3b30; }
+        .rank-ss { color: #ff9500; }
+        .rank-s { color: #ffcc00; }
+        .rank-a { color: #34c759; }
+        .rank-b { color: #007aff; }
+        .rank-c { color: #5856d6; }
+        .rank-d { color: #af52de; }
+        .rank-e { color: #8e8e93; }
+        
+        /* 操作説明スタイル */
+        .instructions {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .instruction-item {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            font-size: 16px;
+            color: #495057;
+        }
+        
+        .instruction-icon {
+            font-size: 16px;
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+            color: #007bff;
+            font-weight: bold;
+        }
+        
+        .start-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .start-btn:hover {
+            background: #0056b3;
+        }
+        .start-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Web広告、D2C用語タイピングゲーム</h1>
+        
+        <div id="start-screen">
+            <p>Web広告やD2C界隈で良く使われる会話や専門用語をランダムに出題します。</p>
+            <p>制限時間120秒でできるだけ多くタイピングをしよう！</p>
+            
+            <!-- 操作説明 -->
+            <div class="instructions">
+                <div class="instruction-item">
+                    <span class="instruction-icon">▶</span>
+                    <span>半角英数入力に切り替えてください</span>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">▶</span>
+                    <span>スペースキーまたはボタンでゲーム開始</span>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">▶</span>
+                    <span>ゲーム途中終了ややり直しはESCキー</span>
+                </div>
+            </div>
+            
+            <button id="start-btn" class="start-btn">ゲーム開始（スペースキー）</button>
+        </div>
+        
+        <div id="game-screen" style="display: none;">
+            <div class="stats">
+                <div class="stat">
+                    <div>残り時間</div>
+                    <div id="timer" class="stat-value">120</div>
+                </div>
+                <div class="stat">
+                    <div>正解数</div>
+                    <div id="correct" class="stat-value">0</div>
+                </div>
+                <div class="stat">
+                    <div>ミス数</div>
+                    <div id="miss" class="stat-value">0</div>
+                </div>
+            </div>
+            
+            <div class="game-area">
+                <!-- カテゴリ名を上部に配置 -->
+                <div class="category-display">
+                    <span id="current-category" class="category-tag">カテゴリ</span>
+                </div>
+                
+                <div id="sentence" class="sentence">文章がここに表示されます</div>
+                <div id="furigana" class="furigana">ふりがながここに表示されます</div>
+                
+                <!-- 進捗バー -->
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div id="romaji-guide" class="romaji-guide">ローマ字ガイドがここに表示されます</div>
+            </div>
+            
+            <div class="input-area">
+                <input type="text" id="typing-input" class="typing-input" placeholder="ここにタイピングしてください">
+            </div>
+        </div>
+        
+        <div id="result-screen" style="display: none;">
+            <h2 style="text-align: center;">結果発表</h2>
+            
+            <!-- ランク表示 -->
+            <div id="rank-display" class="rank-display">
+                <div class="rank-label">ランク</div>
+                <div id="final-rank" class="rank-value">-</div>
+            </div>
+            
+            <!-- 詳細統計 -->
+            <div class="stats">
+                <div class="stat">
+                    <div>KPS</div>
+                    <div id="final-kps" class="stat-value">0.00/秒</div>
+                </div>
+                <div class="stat">
+                    <div>正確性</div>
+                    <div id="final-accuracy" class="stat-value">0.00%</div>
+                </div>
+                <div class="stat">
+                    <div>ミス率</div>
+                    <div id="final-miss-rate" class="stat-value">0.00%</div>
+                </div>
+                <div class="stat">
+                    <div>正解数</div>
+                    <div id="final-correct" class="stat-value">0</div>
+                </div>
+                <div class="stat">
+                    <div>ミス数</div>
+                    <div id="final-miss" class="stat-value">0</div>
+                </div>
+            </div>
+            
+            <button id="retry-btn" class="start-btn">もう一度挑戦</button>
+        </div>
+    </div>
+
+    <script>
+        class SimpleTypingGame {
+            constructor() {
+                // 埋め込みデータ（JSONファイル読み込み失敗時のフォールバック）
+                this.fallbackSentences = [
+                    { id: 1, text: "Web広告のCPAを下げる方法", furigana: "WebこうこくのCPAをさげるほうほう", category: "広告運用", difficulty: "basic" },
+                    { id: 2, text: "しょんぼりしないで！", furigana: "しょんぼりしないで！", category: "コミュニケーション", difficulty: "basic" },
+                    { id: 3, text: "新しいLPのABテストを実施しましょう", furigana: "あたらしいLPのABてすとをじっししましょう", category: "マーケティング", difficulty: "intermediate" },
+                    { id: 4, text: "CVRが改善されました", furigana: "CVRがかいぜんされました", category: "分析・改善", difficulty: "basic" },
+                    { id: 5, text: "CTRを改善するために広告を変更します", furigana: "CTRをかいぜんするためにこうこくをへんこうします", category: "広告運用", difficulty: "intermediate" },
+                    { id: 6, text: "コンバージョンファネルを最適化しましょう", furigana: "こんばーじょんふぁねるをさいてきかしましょう", category: "分析・改善", difficulty: "advanced" }
+                ];
+
+                this.sentences = [];
+                this.usedSentenceIds = new Set(); // 使用済み文章IDを記録
+                
+                this.initElements();
+                this.bindEvents();
+                this.loadSentences(); // JSONファイルを読み込み
+            }
+
+            initElements() {
+                this.startScreen = document.getElementById('start-screen');
+                this.gameScreen = document.getElementById('game-screen');
+                this.resultScreen = document.getElementById('result-screen');
+                this.startBtn = document.getElementById('start-btn');
+                this.retryBtn = document.getElementById('retry-btn');
+                this.timerElement = document.getElementById('timer');
+                this.correctElement = document.getElementById('correct');
+                this.missElement = document.getElementById('miss');
+                this.sentenceElement = document.getElementById('sentence');
+                this.furiganaElement = document.getElementById('furigana');
+                this.romajiGuideElement = document.getElementById('romaji-guide');
+                this.currentCategoryElement = document.getElementById('current-category');
+                this.progressFillElement = document.getElementById('progress-fill');
+                this.typingInput = document.getElementById('typing-input');
+                this.finalCorrectElement = document.getElementById('final-correct');
+                this.finalMissElement = document.getElementById('final-miss');
+                this.finalRankElement = document.getElementById('final-rank');
+                this.finalKpsElement = document.getElementById('final-kps');
+                this.finalAccuracyElement = document.getElementById('final-accuracy');
+                this.finalMissRateElement = document.getElementById('final-miss-rate');
+            }
+
+            bindEvents() {
+                this.startBtn.addEventListener('click', () => this.startGame());
+                this.retryBtn.addEventListener('click', () => this.resetGame(true));
+                
+                // グローバルキーイベント
+                document.addEventListener('keydown', (e) => {
+                    if (this.isGameActive) {
+                        this.handleKeydown(e);
+                    } else if (this.startScreen.style.display !== 'none') {
+                        // スタート画面でスペースキー押下時
+                        if (e.code === 'Space') {
+                            e.preventDefault();
+                            this.startGame();
+                        }
+                    }
+                });
+
+                // 入力フィールドは常にフォーカス状態にする
+                this.typingInput.addEventListener('blur', () => {
+                    if (this.isGameActive) this.typingInput.focus();
+                });
+            }
+            
+            // JSONファイルから文章データを読み込む
+            async loadSentences() {
+                try {
+                    console.log('JSONファイルを読み込み中...');
+                    const response = await fetch('./sentences.json');
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    this.sentences = data;
+                    console.log(`${this.sentences.length}件の文章データを読み込みました`);
+                    console.log('カテゴリ:', [...new Set(this.sentences.map(s => s.category))]);
+                    
+                    // ゲームの初期化（データ読み込み完了後）
+                    this.resetGame();
+                    
+                } catch (error) {
+                    console.error('JSONファイルの読み込みに失敗しました:', error);
+                    console.log('フォールバックデータを使用します');
+                    this.sentences = this.fallbackSentences;
+                    this.resetGame();
+                }
+            }
+            
+            // ★新しいロジック: ふりがなをトークン（部品）に分解する
+            tokenize(furigana) {
+                // 手動でトークン分割（確実に動作する方法）
+                const tokens = [];
+                let currentToken = '';
+                let currentType = null;
+                
+                for (let i = 0; i < furigana.length; i++) {
+                    const char = furigana[i];
+                    const isAlpha = /[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~`]/.test(char);
+                    const isKana = /[ぁ-んァ-ヶー]/.test(char);
+                    
+                    if (isAlpha) {
+                        if (currentType === 'kana' && currentToken) {
+                            tokens.push({ type: 'kana', value: currentToken, typed: '', remaining: currentToken });
+                            currentToken = '';
+                        }
+                        currentType = 'alpha';
+                        currentToken += char;
+                    } else if (isKana) {
+                        if (currentType === 'alpha' && currentToken) {
+                            tokens.push({ type: 'alpha', value: currentToken, typed: '', remaining: currentToken });
+                            currentToken = '';
+                        }
+                        currentType = 'kana';
+                        currentToken += char;
+                    } else {
+                        // その他の文字（スペースなど）は無視
+                        if (currentToken) {
+                            tokens.push({ type: currentType, value: currentToken, typed: '', remaining: currentToken });
+                            currentToken = '';
+                            currentType = null;
+                        }
+                    }
+                }
+                
+                // 最後のトークンを追加
+                if (currentToken) {
+                    tokens.push({ type: currentType, value: currentToken, typed: '', remaining: currentToken });
+                }
+                
+                return tokens;
+            }
+
+            startGame() {
+                this.startScreen.style.display = 'none';
+                this.gameScreen.style.display = 'block';
+                this.resultScreen.style.display = 'none';
+                
+                this.isGameActive = true;
+                this.timeLeft = 120;
+                this.score = 0;
+                this.correctTypes = 0;
+                this.missTypes = 0;
+                
+                // 使用済み文章リストをクリア（新しいゲーム開始）
+                this.usedSentenceIds.clear();
+                
+                this.currentSentenceIndex = -1; // 最初のnextSentenceで0になるように
+                this.nextSentence();
+                this.startTimer();
+                this.updateDisplay();
+                
+                // ゲーム開始時に半角入力の注意を表示
+                console.log('💡 半角英数入力でタイピングしてください');
+            }
+            
+            // リセット時に画面も戻すかのフラグを追加
+            resetGame(showStartScreen = false) {
+                this.isGameActive = false;
+                clearInterval(this.timer);
+
+                if (showStartScreen) {
+                    this.startScreen.style.display = 'block';
+                    this.gameScreen.style.display = 'none';
+                    this.resultScreen.style.display = 'none';
+                }
+                
+                this.sentenceTokens = [];
+                this.currentTokenIndex = 0;
+                this.romajiBuffer = '';
+                
+                this.typingInput.value = '';
+                this.sentenceElement.textContent = '文章がここに表示されます';
+                this.romajiGuideElement.textContent = 'ローマ字ガイドがここに表示されます';
+            }
+
+            nextSentence() {
+                // 重み付きランダム選択（業務会話を高頻度で出題、重複なし）
+                this.currentSentenceIndex = this.getWeightedRandomSentenceIndex();
+                
+                const sentence = this.sentences[this.currentSentenceIndex];
+                
+                // 使用済み文章として記録
+                this.usedSentenceIds.add(sentence.id);
+                
+                this.sentenceElement.textContent = sentence.text;
+                
+                // ふりがな表示
+                this.furiganaElement.textContent = sentence.furigana;
+                
+                // カテゴリを表示
+                if (sentence.category) {
+                    this.currentCategoryElement.textContent = sentence.category;
+                    this.currentCategoryElement.className = 'category-tag';
+                }
+                
+                
+                // ★新しいロジック: 文章をトークン化して状態をリセット
+                this.sentenceTokens = this.tokenize(sentence.furigana);
+                this.currentTokenIndex = 0;
+                this.romajiBuffer = ''; // ローマ字入力バッファをクリア
+                
+                
+                this.updateRomajiGuide();
+                this.updateProgressBar();
+                this.typingInput.focus();
+            }
+
+            // ★★★ この関数が「ティ」の問題を解決する決定版のロジックです ★★★
+            handleKeydown(e) {
+                if (e.key === 'Escape') {
+                    this.endGame();
+                    return;
+                }
+                if (e.key.length > 1 || e.ctrlKey || e.altKey || e.metaKey) {
+                    return;
+                }
+                e.preventDefault();
+                const key = e.key;
+                const currentToken = this.sentenceTokens[this.currentTokenIndex];
+
+                if (!currentToken) return;
+                
+                // デバッグログを削除（パフォーマンス向上）
+
+                if (currentToken.type === 'alpha') {
+                    const nextChar = currentToken.remaining.charAt(0);
+                    if (key.toLowerCase() === nextChar.toLowerCase()) {
+                        this.correctTypes++;
+                        this.score += 10;
+                        currentToken.typed += nextChar;
+                        currentToken.remaining = currentToken.remaining.substring(1);
+                        if (currentToken.remaining.length === 0) {
+                            this.advanceToNextToken();
+                        }
+                    } else {
+                        this.missTypes++;
+                    }
+                } else { // type === 'kana'
+                    this.romajiBuffer += key;
+                    
+                    // 「ティ」の特殊処理を最優先で実行
+                    if (this.romajiBuffer === 'thi' && currentToken.remaining.startsWith('てぃ')) {
+                        // 'thi' -> 'てぃ' の直接変換
+                        this.correctTypes += 3;
+                        this.score += 30;
+                        currentToken.typed += 'てぃ';
+                        currentToken.remaining = currentToken.remaining.substring(2);
+                        this.romajiBuffer = '';
+                        
+                        if (currentToken.remaining.length === 0) {
+                            this.advanceToNextToken();
+                        }
+                        this.updateDisplay();
+                        this.updateRomajiGuide();
+                        return; // 早期リターンで他の処理をスキップ
+                    }
+                    
+                    if (this.romajiBuffer === 'ti' && currentToken.remaining.startsWith('てぃ')) {
+                        // 'ti' -> 'てぃ' の直接変換
+                        this.correctTypes += 2;
+                        this.score += 20;
+                        currentToken.typed += 'てぃ';
+                        currentToken.remaining = currentToken.remaining.substring(2);
+                        this.romajiBuffer = '';
+                        
+                        if (currentToken.remaining.length === 0) {
+                            this.advanceToNextToken();
+                        }
+                        this.updateDisplay();
+                        this.updateRomajiGuide();
+                        return; // 早期リターンで他の処理をスキップ
+                    }
+                    
+                    // 「ィング」の特殊処理
+                    if (this.romajiBuffer === 'ingu' && currentToken.remaining.startsWith('いんぐ')) {
+                        // 'ingu' -> 'いんぐ' の直接変換
+                        this.correctTypes += 4;
+                        this.score += 40;
+                        currentToken.typed += 'いんぐ';
+                        currentToken.remaining = currentToken.remaining.substring(3);
+                        this.romajiBuffer = '';
+                        
+                        if (currentToken.remaining.length === 0) {
+                            this.advanceToNextToken();
+                        }
+                        this.updateDisplay();
+                        this.updateRomajiGuide();
+                        return;
+                    }
+                    
+                    if (this.romajiBuffer === 'tingu' && currentToken.remaining.startsWith('てぃんぐ')) {
+                        // 'tingu' -> 'てぃんぐ' の直接変換
+                        this.correctTypes += 5;
+                        this.score += 50;
+                        currentToken.typed += 'てぃんぐ';
+                        currentToken.remaining = currentToken.remaining.substring(4);
+                        this.romajiBuffer = '';
+                        
+                        if (currentToken.remaining.length === 0) {
+                            this.advanceToNextToken();
+                        }
+                        this.updateDisplay();
+                        this.updateRomajiGuide();
+                        return;
+                    }
+                    
+                    // IMEModeを使って、入力の途中かどうかを判断
+                    const kana = wanakana.toKana(this.romajiBuffer, { IMEMode: true });
+                    
+                    // isRomajiで、変換結果がまだローマ字のままか（入力途中か）をチェック
+                    if (wanakana.isRomaji(kana)) {
+                        // 入力がまだローマ字の途中（例: 's', 'sh', 'x', 'th'）
+                        // 複数のローマ字パターンを考慮した柔軟な判定
+                        if (this.isValidPartialInput(this.romajiBuffer, currentToken.remaining)) {
+                            // 正しい打ち出しなので、次のキー入力を待つ
+                        } else {
+                            // 間違い
+                            this.missTypes++;
+                            this.romajiBuffer = this.romajiBuffer.slice(0, -1);
+                        }
+                    } else {
+                        // 入力がひらがなに変換された（例: 'shi' -> 'し', 'thi' -> 'てぃ'）
+                        const targetHiragana = wanakana.toHiragana(currentToken.remaining);
+                        
+                        // 「ティ」のような複合文字の処理を改善
+                        if (this.isValidKanaMatch(kana, currentToken.remaining)) {
+                            // マッチした文字数を正確に計算
+                            const matchedLength = this.getMatchedKanaLength(kana, currentToken.remaining);
+                            const originalTypedKana = currentToken.remaining.substring(0, matchedLength);
+
+                            this.correctTypes += this.romajiBuffer.length;
+                            this.score += 10 * this.romajiBuffer.length;
+                            
+                            currentToken.typed += originalTypedKana;
+                            currentToken.remaining = currentToken.remaining.substring(matchedLength);
+                            this.romajiBuffer = ''; // 正しく変換されたのでバッファをクリア
+                            
+                            if (currentToken.remaining.length === 0) {
+                                this.advanceToNextToken();
+                            }
+                        } else {
+                            // 変換されたが、次の文字とは違う（例：「か」を待っているのに「し」が来た）
+                            this.missTypes++;
+                            this.romajiBuffer = this.romajiBuffer.slice(0, -1);
+                        }
+                    }
+                }
+                this.updateDisplay();
+                this.updateRomajiGuide();
+                this.updateProgressBar();
+            }
+
+            // ★新しいロジック: 柔軟なローマ字パターン判定
+            isValidPartialInput(buffer, remainingKana) {
+                if (!buffer) return true;
+                
+                // 複数のローマ字パターンを試す
+                const patterns = [
+                    wanakana.toRomaji(remainingKana), // 標準パターン
+                    wanakana.toRomaji(remainingKana, { upcaseKatakana: true }), // カタカナ対応
+                ];
+                
+                // 特殊なパターンも追加
+                const specialPatterns = this.getSpecialRomajiPatterns(remainingKana);
+                patterns.push(...specialPatterns);
+                
+                // いずれかのパターンで一致するかチェック
+                return patterns.some(pattern => 
+                    pattern.toLowerCase().startsWith(buffer.toLowerCase())
+                );
+            }
+            
+            // 特殊なローマ字パターンを生成
+            getSpecialRomajiPatterns(kana) {
+                const patterns = [];
+                
+                // ティ -> thi パターン
+                if (kana.includes('ティ')) {
+                    patterns.push(kana.replace(/ティ/g, 'thi'));
+                }
+                // ファ -> fa パターン
+                if (kana.includes('ファ')) {
+                    patterns.push(kana.replace(/ファ/g, 'fa'));
+                }
+                // フィ -> fi パターン
+                if (kana.includes('フィ')) {
+                    patterns.push(kana.replace(/フィ/g, 'fi'));
+                }
+                // フェ -> fe パターン
+                if (kana.includes('フェ')) {
+                    patterns.push(kana.replace(/フェ/g, 'fe'));
+                }
+                // フォ -> fo パターン
+                if (kana.includes('フォ')) {
+                    patterns.push(kana.replace(/フォ/g, 'fo'));
+                }
+                // ウィ -> wi パターン
+                if (kana.includes('ウィ')) {
+                    patterns.push(kana.replace(/ウィ/g, 'wi'));
+                }
+                // ウェ -> we パターン
+                if (kana.includes('ウェ')) {
+                    patterns.push(kana.replace(/ウェ/g, 'we'));
+                }
+                // ウォ -> wo パターン
+                if (kana.includes('ウォ')) {
+                    patterns.push(kana.replace(/ウォ/g, 'wo'));
+                }
+                
+                // 新しい柔軟パターンを追加
+                
+                // ふ -> hu パターン (fuの代替)
+                if (kana.includes('ふ')) {
+                    patterns.push(kana.replace(/ふ/g, 'hu'));
+                }
+                
+                // ち -> ti パターン (chiの代替)
+                if (kana.includes('ち')) {
+                    patterns.push(kana.replace(/ち/g, 'ti'));
+                }
+                
+                // ちょう -> tyou パターン (chouの代替)
+                if (kana.includes('ちょう')) {
+                    patterns.push(kana.replace(/ちょう/g, 'tyou'));
+                }
+                
+                // ちょ -> tyo パターン (choの代替)
+                if (kana.includes('ちょ')) {
+                    patterns.push(kana.replace(/ちょ/g, 'tyo'));
+                }
+                
+                // ちゅ -> tyu パターン (chuの代替)
+                if (kana.includes('ちゅ')) {
+                    patterns.push(kana.replace(/ちゅ/g, 'tyu'));
+                }
+                
+                // しょう -> syou パターン (shouの代替)
+                if (kana.includes('しょう')) {
+                    patterns.push(kana.replace(/しょう/g, 'syou'));
+                }
+                
+                // しょ -> syo パターン (shoの代替)
+                if (kana.includes('しょ')) {
+                    patterns.push(kana.replace(/しょ/g, 'syo'));
+                }
+                
+                // しゅ -> syu パターン (shuの代替)
+                if (kana.includes('しゅ')) {
+                    patterns.push(kana.replace(/しゅ/g, 'syu'));
+                }
+                
+                // じょう -> jyou パターン (jouの代替)
+                if (kana.includes('じょう')) {
+                    patterns.push(kana.replace(/じょう/g, 'jyou'));
+                }
+                
+                // じょ -> jyo パターン (joの代替)
+                if (kana.includes('じょ')) {
+                    patterns.push(kana.replace(/じょ/g, 'jyo'));
+                }
+                
+                // じゅ -> jyu パターン (juの代替)
+                if (kana.includes('じゅ')) {
+                    patterns.push(kana.replace(/じゅ/g, 'jyu'));
+                }
+                
+                // てぃんぐ -> tingu パターン (tingの代替)
+                if (kana.includes('てぃんぐ')) {
+                    patterns.push(kana.replace(/てぃんぐ/g, 'tingu'));
+                }
+                
+                // づ -> du パターン (zuの代替)
+                if (kana.includes('づ')) {
+                    patterns.push(kana.replace(/づ/g, 'du'));
+                }
+                
+                // つ -> tu パターン (tsuの代替)
+                if (kana.includes('つ')) {
+                    patterns.push(kana.replace(/つ/g, 'tu'));
+                }
+                
+                // 促音「っ」の処理を追加
+                // 「っ」は次の子音を重ねる（例：ちゃっと -> chatto, tyatto）
+                if (kana.includes('っ')) {
+                    // 基本パターン（wanakanaの標準変換）
+                    const basicRomaji = wanakana.toRomaji(kana);
+                    patterns.push(basicRomaji);
+                    
+                    // 代替パターン（ちゃ->tya, しゃ->sya, じゃ->jya等）
+                    let altPattern = kana;
+                    altPattern = altPattern.replace(/ちゃ/g, 'tya');
+                    altPattern = altPattern.replace(/ちゅ/g, 'tyu');
+                    altPattern = altPattern.replace(/ちょ/g, 'tyo');
+                    altPattern = altPattern.replace(/しゃ/g, 'sya');
+                    altPattern = altPattern.replace(/しゅ/g, 'syu');
+                    altPattern = altPattern.replace(/しょ/g, 'syo');
+                    altPattern = altPattern.replace(/じゃ/g, 'jya');
+                    altPattern = altPattern.replace(/じゅ/g, 'jyu');
+                    altPattern = altPattern.replace(/じょ/g, 'jyo');
+                    
+                    if (altPattern !== kana) {
+                        const altRomaji = wanakana.toRomaji(altPattern);
+                        patterns.push(altRomaji);
+                    }
+                }
+                
+                // 長音「ー」の処理を追加
+                // 「つー」「りー」「なー」などの長音記号の処理
+                if (kana.includes('ー')) {
+                    // 基本パターン（wanakanaの標準変換）
+                    const basicRomaji = wanakana.toRomaji(kana);
+                    patterns.push(basicRomaji);
+                    
+                    // 長音記号を母音に置き換えるパターン
+                    let longVowelPattern = kana;
+                    // つー -> tsuu, りー -> rii, なー -> naa など
+                    longVowelPattern = longVowelPattern.replace(/うー/g, 'uu');
+                    longVowelPattern = longVowelPattern.replace(/いー/g, 'ii');
+                    longVowelPattern = longVowelPattern.replace(/あー/g, 'aa');
+                    longVowelPattern = longVowelPattern.replace(/えー/g, 'ee');
+                    longVowelPattern = longVowelPattern.replace(/おー/g, 'oo');
+                    
+                    if (longVowelPattern !== kana) {
+                        const longVowelRomaji = wanakana.toRomaji(longVowelPattern);
+                        patterns.push(longVowelRomaji);
+                    }
+                }
+                
+                return patterns;
+            }
+
+            // ★新しいロジック: 次のトークンに進む処理
+            advanceToNextToken() {
+                this.currentTokenIndex++;
+                this.romajiBuffer = '';
+                if (this.currentTokenIndex >= this.sentenceTokens.length) {
+                    // 文章完了！
+                    this.score += 100; // ボーナススコア
+                    this.nextSentence();
+                }
+            }
+            
+            // 「ティ」のような複合文字のマッチ判定を改善
+            isValidKanaMatch(kana, remaining) {
+                const targetHiragana = wanakana.toHiragana(remaining);
+                
+                // 完全一致の場合
+                if (targetHiragana.startsWith(kana)) {
+                    return true;
+                }
+                
+                // 部分一致の場合（例：「て」が「てぃ」の最初の文字）
+                // ただし、完全な文字としてマッチする場合のみ
+                if (kana.length === 1 && targetHiragana.length > 1) {
+                    // 単一文字が複合文字の最初の文字と一致する場合
+                    const firstChar = targetHiragana.charAt(0);
+                    if (kana === firstChar) {
+                        // 次の文字が小文字（ぃ、ゅ、ょなど）の場合は部分マッチとして扱わない
+                        const nextChar = targetHiragana.charAt(1);
+                        if (nextChar && 'ぁぃぅぇぉゃゅょァィゥェォャュョ'.includes(nextChar)) {
+                            return false; // 複合文字の途中なので、完全な入力まで待つ
+                        }
+                        return true;
+                    }
+                }
+                
+                return false;
+            }
+            
+            // マッチした文字数を正確に計算
+            getMatchedKanaLength(kana, remaining) {
+                const targetHiragana = wanakana.toHiragana(remaining);
+                
+                if (targetHiragana.startsWith(kana)) {
+                    return kana.length;
+                }
+                
+                // 部分一致の場合
+                if (kana.length === 1 && targetHiragana.length > 1) {
+                    const firstChar = targetHiragana.charAt(0);
+                    if (kana === firstChar) {
+                        const nextChar = targetHiragana.charAt(1);
+                        if (nextChar && 'ぁぃぅぇぉゃゅょァィゥェォャュョ'.includes(nextChar)) {
+                            return 0; // 複合文字の途中なので、まだマッチしない
+                        }
+                        return 1;
+                    }
+                }
+                
+                return 0;
+            }
+            
+            // ★新しいロジック: ローマ字ガイドの表示を更新
+            updateRomajiGuide() {
+                let typedHTML = '';
+                // 完了したトークン
+                for (let i = 0; i < this.currentTokenIndex; i++) {
+                    typedHTML += wanakana.toRomaji(this.sentenceTokens[i].value);
+                }
+                
+                let remainingHTML = '';
+                if (this.currentTokenIndex < this.sentenceTokens.length) {
+                    const currentToken = this.sentenceTokens[this.currentTokenIndex];
+                    // 現在のトークンの入力済み部分
+                    typedHTML += wanakana.toRomaji(currentToken.typed);
+                    
+                    // 現在のトークンの未入力部分
+                    remainingHTML = `<span class="current-buffer">${this.romajiBuffer}</span>` + wanakana.toRomaji(currentToken.remaining);
+                    
+                    // 未完了のトークン
+                    for (let i = this.currentTokenIndex + 1; i < this.sentenceTokens.length; i++) {
+                        remainingHTML += wanakana.toRomaji(this.sentenceTokens[i].value);
+                    }
+                }
+                
+                this.romajiGuideElement.innerHTML = `<span class="success">${typedHTML}</span>${remainingHTML}`;
+                this.typingInput.value = typedHTML + this.romajiBuffer; // 入力フィールドにも反映
+            }
+
+            startTimer() {
+                clearInterval(this.timer);
+                this.timer = setInterval(() => {
+                    this.timeLeft--;
+                    if (this.timeLeft <= 0) {
+                        this.endGame();
+                    }
+                    this.updateDisplay();
+                }, 1000);
+            }
+            
+            endGame() {
+                this.isGameActive = false;
+                clearInterval(this.timer);
+                
+                // ゲーム結果の詳細計算
+                const gameResults = this.calculateGameResults();
+                
+                this.finalCorrectElement.textContent = this.correctTypes;
+                this.finalMissElement.textContent = this.missTypes;
+                
+                // 新しい結果表示を追加
+                this.displayDetailedResults(gameResults);
+                
+                this.gameScreen.style.display = 'none';
+                this.resultScreen.style.display = 'block';
+            }
+            
+            // ゲーム結果の詳細計算
+            calculateGameResults() {
+                const totalTime = 120; // 制限時間（秒）
+                const elapsedTime = totalTime - this.timeLeft;
+                
+                // KPS（Keys Per Second）計算
+                const kps = elapsedTime > 0 ? (this.correctTypes / elapsedTime) : 0;
+                
+                // ミス率計算
+                const totalTypes = this.correctTypes + this.missTypes;
+                const missRate = totalTypes > 0 ? (this.missTypes / totalTypes) * 100 : 0;
+                
+                // 正確性（100% - ミス率）
+                const accuracy = 100 - missRate;
+                
+                // ランク判定
+                const rank = this.calculateRank(kps, accuracy);
+                
+                return {
+                    kps: Math.round(kps * 100) / 100, // 小数点2桁
+                    missRate: Math.round(missRate * 100) / 100,
+                    accuracy: Math.round(accuracy * 100) / 100,
+                    rank: rank,
+                    elapsedTime: elapsedTime
+                };
+            }
+            
+            // ランク判定ロジック
+            calculateRank(kps, accuracy) {
+                // SSS: KPS 5.0以上 & 正確性 99%以上
+                if (kps >= 5.0 && accuracy >= 99) return 'SSS';
+                
+                // SS: KPS 4.5以上 & 正確性 97%以上
+                if (kps >= 4.5 && accuracy >= 97) return 'SS';
+                
+                // S: KPS 4.0以上 & 正確性 95%以上
+                if (kps >= 4.0 && accuracy >= 95) return 'S';
+                
+                // A: KPS 3.5以上 & 正確性 90%以上
+                if (kps >= 3.5 && accuracy >= 90) return 'A';
+                
+                // B: KPS 3.0以上 & 正確性 85%以上
+                if (kps >= 3.0 && accuracy >= 85) return 'B';
+                
+                // C: KPS 2.5以上 & 正確性 80%以上
+                if (kps >= 2.5 && accuracy >= 80) return 'C';
+                
+                // D: KPS 2.0以上 & 正確性 70%以上
+                if (kps >= 2.0 && accuracy >= 70) return 'D';
+                
+                // E: それ以下
+                return 'E';
+            }
+            
+            // 詳細結果を画面に表示
+            displayDetailedResults(results) {
+                // ランク表示
+                this.finalRankElement.textContent = results.rank;
+                this.finalRankElement.className = `rank-value rank-${results.rank.toLowerCase()}`;
+                
+                // 詳細統計表示
+                this.finalKpsElement.textContent = `${results.kps.toFixed(2)}/秒`;
+                this.finalAccuracyElement.textContent = `${results.accuracy.toFixed(1)}%`;
+                this.finalMissRateElement.textContent = `${results.missRate.toFixed(1)}%`;
+                
+                // コンソールに詳細情報を出力
+                console.log('=== ゲーム結果 ===');
+                console.log(`ランク: ${results.rank}`);
+                console.log(`KPS: ${results.kps.toFixed(2)}`);
+                console.log(`正確性: ${results.accuracy.toFixed(1)}%`);
+                console.log(`ミス率: ${results.missRate.toFixed(1)}%`);
+                console.log(`経過時間: ${results.elapsedTime}秒`);
+                console.log('==================');
+            }
+            
+            updateDisplay() {
+                this.timerElement.textContent = this.timeLeft;
+                this.correctElement.textContent = this.correctTypes;
+                this.missElement.textContent = this.missTypes;
+            }
+            
+            // 重み付きランダム選択（業務会話を高頻度で出題、重複なし）
+            getWeightedRandomSentenceIndex() {
+                if (!this.sentences || this.sentences.length === 0) {
+                    return 0;
+                }
+                
+                // 未使用の文章のみをフィルタリング
+                const unusedSentences = this.sentences.filter(sentence => 
+                    !this.usedSentenceIds.has(sentence.id)
+                );
+                
+                // 全ての文章を使い切った場合は使用済みリストをクリア
+                if (unusedSentences.length === 0) {
+                    console.log('🔄 全ての文章を使い切りました。リストをリセットします。');
+                    this.usedSentenceIds.clear();
+                    return this.getWeightedRandomSentenceIndex(); // 再帰呼び出し
+                }
+                
+                // 未使用文章の重み設定
+                const weights = unusedSentences.map(sentence => {
+                    // ID 50以降（業務会話）は重み3倍、それ以外は重み1
+                    return sentence.id >= 50 ? 3 : 1;
+                });
+                
+                // 累積重みを計算
+                const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+                let randomValue = Math.random() * totalWeight;
+                
+                // 重み付きランダム選択
+                for (let i = 0; i < weights.length; i++) {
+                    randomValue -= weights[i];
+                    if (randomValue <= 0) {
+                        // 未使用文章から選択されたものの元のインデックスを返す
+                        const selectedSentence = unusedSentences[i];
+                        return this.sentences.findIndex(sentence => sentence.id === selectedSentence.id);
+                    }
+                }
+                
+                // フォールバック（通常は到達しない）
+                const selectedSentence = unusedSentences[unusedSentences.length - 1];
+                return this.sentences.findIndex(sentence => sentence.id === selectedSentence.id);
+            }
+            
+            // 進捗バーを更新
+            updateProgressBar() {
+                if (!this.sentenceTokens || this.sentenceTokens.length === 0) {
+                    this.progressFillElement.style.width = '0%';
+                    return;
+                }
+                
+                // 完了したトークン数を計算
+                let completedTokens = this.currentTokenIndex;
+                
+                // 現在のトークンの進捗も考慮
+                if (this.currentTokenIndex < this.sentenceTokens.length) {
+                    const currentToken = this.sentenceTokens[this.currentTokenIndex];
+                    if (currentToken && currentToken.value) {
+                        const tokenProgress = currentToken.typed.length / currentToken.value.length;
+                        completedTokens += tokenProgress;
+                    }
+                }
+                
+                // 進捗率を計算（0-100%）
+                const progressPercentage = Math.min((completedTokens / this.sentenceTokens.length) * 100, 100);
+                
+                // 進捗バーを更新
+                this.progressFillElement.style.width = `${progressPercentage}%`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new SimpleTypingGame();
+        });
+    </script>
+</body>
+</html>
